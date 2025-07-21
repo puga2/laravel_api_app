@@ -1,0 +1,6 @@
+[
+  {
+    "type": "sqlite",
+    "path": "d:\\Laravel\\laravel-api-app\\database\\database.sqlite"
+  }
+]
