@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 
@@ -43,7 +43,7 @@ class PostController extends Controller implements HasMiddleware
 
         return response()->json([
             'message'=>'post create successfully',
-            'data'=>$post,
+            'post'=>$post,
             'user'=>$post->user
         ],201);
     }
@@ -77,7 +77,7 @@ class PostController extends Controller implements HasMiddleware
 
         return response()->json([
             'message'=>'post updated successfully',
-            'data'=>$post,
+            'post'=>$post,
              'user'=>$post->user
         ], 200);
     }
