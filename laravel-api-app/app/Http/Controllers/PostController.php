@@ -23,7 +23,7 @@ class PostController extends Controller implements HasMiddleware
     public function index()
     {
         //
-        return Post::all();
+        return Post::with('user')->latest()->get();;
     }
 
     /**
@@ -43,7 +43,8 @@ class PostController extends Controller implements HasMiddleware
 
         return response()->json([
             'message'=>'post create successfully',
-            'data'=>$post
+            'data'=>$post,
+            'user'=>$post->user
         ],201);
     }
 
@@ -54,7 +55,8 @@ class PostController extends Controller implements HasMiddleware
     {
         //
         return response()->json([
-            'data'=>$post
+            'data'=>$post,
+            'user'=>$post->user
         ], 200);
     }
 
@@ -75,7 +77,8 @@ class PostController extends Controller implements HasMiddleware
 
         return response()->json([
             'message'=>'post updated successfully',
-            'data'=>$post
+            'data'=>$post,
+             'user'=>$post->user
         ], 200);
     }
 
